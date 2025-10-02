@@ -8,7 +8,7 @@ const Header = () => {
             <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
                 <Link to='/'>
                     <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-                        <span className='text-slate-500'>Sahand</span>
+                        <span className='text-slate-500'>Dream</span>
                         <span className='text-slate-700'>Estate</span>
                     </h1>
                 </Link>
@@ -46,9 +46,10 @@ const Header = () => {
                                 alt='profile'
                             />
                         ) : (
-                            <li className=' text-slate-700 hover:underline'> Sign in</li>
+                             <li className=' text-slate-700 hover:underline'> Sign in</li>
                         )}
                     </Link> */}
+                    <li className=' text-slate-700 hover:underline'> Sign in</li>
                 </ul>
             </div>
         </header>
