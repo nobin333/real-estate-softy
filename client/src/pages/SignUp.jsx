@@ -12,13 +12,13 @@ export default function SignUp() {
             ...formData,
             [e.target.id]: e.target.value,
         });
-        // console.log(formData)
+        console.log(formData)
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await fetch('/api/auth/signin', {
+            const res = await fetch('http://localhost:3100/api/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export default function SignUp() {
             });
             // console.log(res)
             const data = await res.json();
-            // console.log(data);
+            console.log(data);
 
             if (data.success === false) {
                 setLoading(false);

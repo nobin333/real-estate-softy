@@ -5,10 +5,13 @@ const mongoose = require("mongoose")
 const cookieparser = require("cookie-parser")
 
 const authRouter = require("../api/routes/auth.route.js")
+const listingRouter = require("./routes/listing.route.js")
+// const userRouter = require("./routes/user.route.js")
 
 // import userRouter from './routes/user.route.js';
 // import authRouter from './routes/auth.route.js';
 // import listingRouter from './routes/listing.route.js';
+
 
 dotenv.config()
 
@@ -24,13 +27,18 @@ mongoose
 
 const app = express()
 
+app.use(cors({
+    origin: process.env.APP_URL || "http://localhost:5173",
+    credentials: true
+}))
+
 app.use(express.json());
 
 app.use(cookieparser());
 
 // app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
-// app.use('/api/listing', listingRouter);
+app.use('/api/listing', listingRouter);
 
 // Middlewares
 app.use((err, req, res, next) => {
@@ -43,6 +51,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000!');
+app.listen(3100, () => {
+  console.log('Server is running on port 3100!');
 });
